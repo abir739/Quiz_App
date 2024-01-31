@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:quiz_app/Pages/quiz_page.dart';
 
 class WelcomePage extends StatelessWidget {
-  static const double kDefaultPadding = 16.0;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,7 +17,7 @@ class WelcomePage extends StatelessWidget {
           ),
           SafeArea(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -71,7 +69,7 @@ class WelcomePage extends StatelessWidget {
                           ));
                     },
                     child: Container(
-                      padding: const EdgeInsets.all(kDefaultPadding * 0.75),
+                      padding: const EdgeInsets.all(16.0 * 0.75),
                       width: double.infinity,
                       decoration: const BoxDecoration(
                         color: Color.fromARGB(193, 21, 81, 170),
