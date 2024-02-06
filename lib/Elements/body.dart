@@ -1,21 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:quiz_app/Elements/progress_bar.dart';
-import 'package:quiz_app/models/questions.dart';
+import 'package:quiz_app/Elements/question_card.dart' as Elements;
 
 class body extends StatelessWidget {
-  // const body({
-  //   required Key key,
-  // }) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
         SizedBox(
-          height: MediaQuery.of(context)
-              .size
-              .height, //will have the same device's height
+          height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
           child: Image.asset(
             "assets/images/img2.jpg",
@@ -23,16 +17,18 @@ class body extends StatelessWidget {
           ),
         ),
         SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: Container(
+            margin: const EdgeInsets.symmetric(horizontal: 10),
+            padding: const EdgeInsets.all(14),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 16),
-                    child: progressbar()),
+                  padding: EdgeInsets.symmetric(horizontal: 4),
+                  child: progressbar(),
+                ),
                 const SizedBox(
-                  height: 16,
+                  height: 26,
                 ),
                 const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 16),
@@ -55,29 +51,19 @@ class body extends StatelessWidget {
                     ),
                   ),
                 ),
+
                 const Divider(
                   thickness: 1.8,
                 ),
-                Container(
-                  padding: const EdgeInsets.all(16),
-                  decoration: const BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.all(Radius.circular(20)),
-                  ),
-                  child: Column(children: [
-                    Text(
-                      sample_data[0]['question'],
-                      style: const TextStyle(
-                        fontSize: 18,
-                        color: Color.fromARGB(255, 3, 17, 61),
-                      ),
-                    )
-                  ]),
-                )
+                const SizedBox(
+                  height: 16,
+                ),
+
+                Elements.Question(), // Removing 'const' from here
               ],
             ),
           ),
-        )
+        ),
       ],
     );
   }
