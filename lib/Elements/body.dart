@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:get/get.dart';
 import 'package:quiz_app/Elements/progress_bar.dart';
-import 'package:quiz_app/Elements/question_card.dart' as Elements;
+import 'package:quiz_app/Elements/question_card.dart';
+import 'package:quiz_app/controllers/questions_controller.dart';
 
 class body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    QuestionController _questionController = Get.put(QuestionController());
     return Stack(
       children: [
         SizedBox(
@@ -51,15 +54,21 @@ class body extends StatelessWidget {
                     ),
                   ),
                 ),
-
                 const Divider(
                   thickness: 1.8,
                 ),
                 const SizedBox(
                   height: 16,
                 ),
-
-                Elements.Question(), // Removing 'const' from here
+                Expanded(
+                    child: PageView.builder(
+                  itemCount: _questionController.questions.length,
+                  itemBuilder: (context, index) => Question(
+                    key:
+                        UniqueKey(), // Provide a unique key for each instance of the Question widget
+                    question: _questionController.questions[index],
+                  ),
+                )),
               ],
             ),
           ),

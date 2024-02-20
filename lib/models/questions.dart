@@ -11,7 +11,7 @@ class QuestionModel {
 }
 
 // ignore: constant_identifier_names
-const List sample_data = [
+const List example_data = [
   {
     "id": 1,
     "question": "Who created Flutter?",
